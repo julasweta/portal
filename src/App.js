@@ -1,16 +1,22 @@
 import "./App.css";
-import { Routes, Route } from "react-router-dom";
-import Login from "./components/start/Login";
-import Register from "./components/start/Register";
-import Home from "./components/start/Home";
+import { BrowserRouter, Routes, Route, Redirect } from "react-router-dom";
+import Login from "./pages/start/Login";
+import Register from "./pages/start/Register";
+import Home from "./pages/start/Home";
+import Header from "./components/Header";
 
 function App() {
   return (
-    <Routes>
-      <Route exact path="/" component={Home} />
-      <Route path="/login" component={Login} />
-      <Route path="/register" component={Register} />
-    </Routes>
+    <div>
+      <BrowserRouter>
+      <Header></Header>
+      <Routes>
+        <Route exact path="/" element={<Home/>}/>
+        <Route  path="/login" element={<Login/>}/>
+        <Route  path="/register" element={<Register/>}/>
+        </Routes>
+      </BrowserRouter>
+    </div>
   );
 }
 
