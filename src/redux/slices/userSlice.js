@@ -11,13 +11,13 @@ export const userSlice = createSlice({
   initialState,
   reducers: {
     setUser: (state, action) => {
-      state.email = action.payload;
-      state.password = action.payload;
-      state.id = action.payload;
+      state.email = action.payload.email;
+      state.token = action.payload.token;
+      state.id = action.payload.id;
     },
     removeUser:(state, action) => { 
          state.email = null;
-        state.password = null;
+        state.token = null;
         state.id = null;
       },
   },

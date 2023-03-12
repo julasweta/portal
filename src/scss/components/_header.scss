@@ -1,0 +1,26 @@
+.header {
+  padding: 25px;
+
+  .wrapper-sign {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    .btn {
+      width: 100px;
+      border: 2px solid rgb(122, 226, 132);
+      background-color: aliceblue;
+      border-radius: 15%;
+      font-size: 1rem;
+      padding: 2px;
+      text-align: center;
+      text-decoration: none;
+
+      &-login {
+        border: 2px solid rgb(166, 216, 238);
+      }
+      &-out {
+        border: 2px solid rgb(166, 216, 238);
+      }
+    }
+  }
+}

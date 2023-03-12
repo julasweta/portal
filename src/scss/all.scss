@@ -1,0 +1,17 @@
+@import "components/_form" ;
+@import "components/_button" ;
+@import "components/_header" ;
+@import "components/_client" ;
+@import "components/_card" ;
+
+.container{
+    display: flex;
+    padding: 0 20px 0 20px;
+}
+.column{
+    flex-direction: column;
+}
+.list{
+    display: flex;
+    flex-wrap: wrap;
+}

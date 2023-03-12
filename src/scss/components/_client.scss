@@ -1,0 +1,16 @@
+.form{
+    width: 100%;
+}
+.client-form{
+    display: flex;
+    justify-content: space-evenly;
+
+    .client-name{
+        color: cadetblue;
+        font-size: 1.2rem;
+        span{
+            color: black;
+        }
+    }
+  
+}

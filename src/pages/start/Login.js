@@ -1,10 +1,12 @@
-import React from 'react'
+import React from 'react';
+import SignUp from '../../components/SignUp';
 
 function Login() {
   return (
-    <div>
-      Login
-    </div>
+   <div>
+    <SignUp></SignUp>
+   </div>
+  
   )
 }
 
