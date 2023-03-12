@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import Category from "../../components/Category";
+import List from "../List";
 
 function Home() {
   const { email } = useSelector((state) => state.user);
@@ -24,7 +24,7 @@ function Home() {
       name: "Сезонні рецепти",
       img: "https://images.pexels.com/photos/2059151/pexels-photo-2059151.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       description: "Актуальні сезонні рецепти",
-      link: ""
+      link: "/season"
     },
   ];
 
@@ -36,10 +36,9 @@ function Home() {
           <div className="wrapper-sign">Авторизуйтесь</div>
         ) : (
           <div className="wrapper-content">
-            <div className="list">
-            {categories.map(item => (<Category key={item.id} name ={item.name}
-            description={item.description} img={item.img}></Category>))}
-            </div>
+
+
+           <List list={categories} key={categories.map((item, index)=> index)} ></List>
           </div>
         )}
       </div>

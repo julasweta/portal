@@ -1,11 +1,13 @@
 import "./scss/all.scss";
-import { BrowserRouter, Routes, Route, Redirect } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./pages/start/Login";
 import Register from "./pages/start/Register";
 import Home from "./pages/start/Home";
 import Header from "./components/Header";
 import Reset from "./components/Reset";
 import Client from "./pages/start/Client";
+import Recipes from "./pages/Recipes";
+import List from "./pages/List";
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
         <Route  path="/register" element={<Register/>}/>
         <Route  path="/reset" element={<Reset/>}/>
         <Route  path="/client" element={<Client/>}/>
+        <Route  path="/recipes" element={<Recipes/>}/>
+        <Route  path="/recipes/*" element={<List/>}/>
         </Routes>
       </BrowserRouter>
     </div>

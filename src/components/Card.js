@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Category({name, img, description}) {
+function Card({name, img, description}) {
   return (
     <div className='card'>
       <h2>{name}</h2>
@@ -10,4 +10,4 @@ function Category({name, img, description}) {
   )
 }
 
-export default Category
+export default Card
