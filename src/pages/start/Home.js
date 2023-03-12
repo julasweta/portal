@@ -10,7 +10,7 @@ function Home() {
       name: "Рецепти",
       img: "https://cdn.stocksnap.io/img-thumbs/960w/sandwich-food_XJGS3LXDXA.jpg",
       description: "Каталог, збірник рецептів",
-      link:'/recipes'
+      link:'recipes'
     },
     {
       id: 2,
