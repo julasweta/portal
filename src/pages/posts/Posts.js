@@ -1,38 +1,47 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import Button from "../../components/Button";
 import { Link, useLocation, useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { setActiveName } from "../../redux/slices/categoriesSlice";
+import {setResipes}  from "../../redux/slices/postsSlice";
 
-function Posts({cat}) {
-  const [posts, setPosts] = useState([]);
 
-
+function Posts({ cat }) {
+  const dispatch = useDispatch();
+  const { categories, activeCategories, activeSubCategories, activeName } =
+    useSelector((state) => state.categories);
+    const { posts } =
+    useSelector((state) => state.posts);
 
   //отримуємо рецепти
-  useEffect(() => {
-    axios.get(`https://api.jsonbin.io/v3/b/640e569ac0e7653a0586ccae`)
-      .then((response) => {
-        setPosts(response.data.record.filter(post=> post.category === cat));
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, [cat]);
+
+  const onActiveName = (name) => {
+    dispatch(setActiveName(name));
+  };
+
+console.log(posts);
+
 
   return (
     <div>
-    
       <ul className="list-posts">
-        {posts.map((post, index) => (
+        {posts !== undefined && posts.map((post, index) => (
           <li key={index} className="card-post">
             <h4>{post.name}</h4>
             <div>
               <p>{post.description}</p>
-              <div className="card-post_img"><img src={post.img} alt={post.name}></img></div>
+              <div className="card-post_img">
+                <img src={post.img} alt={post.name}></img>
+              </div>
               <div>
-                <Button name={'add'}> </Button>
-                <Link to={`${post.name}`}>{post.name}</Link>
-                </div>
+                <Button name={"add"}> </Button>
+                <Link
+                  onClick={() => onActiveName(post.id)}
+                  to={`${post.id}`}
+                >
+                  {post.name}
+                </Link>
+              </div>
             </div>
           </li>
         ))}
@@ -42,5 +51,3 @@ function Posts({cat}) {
 }
 
 export default Posts;
-
-

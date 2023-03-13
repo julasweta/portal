@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { useSelector,useDispatch } from "react-redux";
-import {setActiveCategories} from "../../redux/slices/categoriesSlice";
+import {setActiveCategories, setActiveSubCategories} from "../../redux/slices/categoriesSlice";
 import { Link, Route, Routes } from "react-router-dom";
 import Categories from "../posts/Categories";
 
 function Home() {
   const dispatch = useDispatch();
   const { email } = useSelector((state) => state.user);
-  const { categories, activeCategories } = useSelector((state) => state.categories);
+  const { categories, activeCategories, activeSubCategories } = useSelector((state) => state.categories);
  
 
   const onActive = (category) => {
@@ -29,7 +29,7 @@ function Home() {
                     onClick={() => {
                       onActive(category.link);
                     }}
-                    to={`/${category.link}/`}
+                    to={`${category.link}`}
                     className={category.link === activeCategories ? "active" : ""}
                   >
                     {category.name}
@@ -43,7 +43,7 @@ function Home() {
                 <Route
                   key={category.id}
                   path={`/:${activeCategories}/*`}
-                  element={<Categories cat={activeCategories} />}
+                  element={<Categories cat={category.link} />}
                 />
               ))}
             </Routes>

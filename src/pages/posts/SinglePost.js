@@ -1,25 +1,23 @@
-import React, { useEffect } from 'react'
-import { useDispatch } from 'react-redux';
-import { useParams } from 'react-router-dom';
-import {setActiveCategories} from "../../redux/slices/categoriesSlice";
-
-
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+import { setActiveCategories } from "../../redux/slices/categoriesSlice";
 
 function SinglePost() {
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
+  const { activeCategories } = useSelector((state) => state.categories);
+  const { posts } = useSelector((state) => state.posts);
+  const [post, setPost] = useState([]);
 
-    const {'*': p1, p2} = useParams()
-    console.log(p1);
-useEffect(()=>{
-dispatch(setActiveCategories(p1))
-},[])
+  useEffect(() => {
+    setPost(posts.filter((post) => posts.link === activeCategories));
+  }, []);
 
   return (
     <div>
       <h4>Single</h4>
-
     </div>
-  )
+  );
 }
 
-export default SinglePost
+export default SinglePost;
