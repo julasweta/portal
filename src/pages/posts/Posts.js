@@ -10,7 +10,7 @@ function Posts({ cat }) {
   const dispatch = useDispatch();
   const { categories, activeCategories, activeSubCategories, activeName } =
     useSelector((state) => state.categories);
-    const { resipes } = useSelector((state) => state.posts);
+    const { recipes } = useSelector((state) => state.posts);
 
   //отримуємо рецепти
 
@@ -18,13 +18,13 @@ function Posts({ cat }) {
     dispatch(setActiveName(name));
   };
 
-console.log(resipes);
+console.log(recipes);
 
 
   return (
     <div>
       <ul className="list-posts">
-        {resipes !== undefined && resipes.map((post, index) => (
+        {recipes !== undefined && recipes.map((post, index) => (
           <li key={index} className="card-post">
             <h4>{post.name}</h4>
             <div>
