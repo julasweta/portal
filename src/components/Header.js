@@ -13,7 +13,7 @@ function Header() {
       
       {email === null ? (
         <div className="wrapper-sign">
-          <Link to="/">Home</Link>
+          <Link to="*"><h1>Смачно.tyt</h1></Link>
           <Link to="/login" className="btn btn-login">
             login
           </Link>

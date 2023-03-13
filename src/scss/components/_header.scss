@@ -1,12 +1,14 @@
 .header {
-  padding: 25px;
+  padding:0 25px 0 25px;
 
   .wrapper-sign {
     display: flex;
     justify-content: space-between;
     flex-direction: row;
+   
     .btn {
       width: 100px;
+      height: 30px;
       border: 2px solid rgb(122, 226, 132);
       background-color: aliceblue;
       border-radius: 15%;
@@ -14,6 +16,7 @@
       padding: 2px;
       text-align: center;
       text-decoration: none;
+      align-self: center;
 
       &-login {
         border: 2px solid rgb(166, 216, 238);
