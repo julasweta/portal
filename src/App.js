@@ -12,8 +12,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {setResipes}  from "./redux/slices/postsSlice";
 
 function App() {
-  const {posts} =
-  useSelector((state) => state.posts);
+  const { resipes } = useSelector((state) => state.posts);
 
   const dispatch = useDispatch();
  useEffect(() => {
@@ -26,10 +25,10 @@ function App() {
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  }, [dispatch]);
   
 
-console.log(posts);
+console.log(resipes);
 
   return (
     <div>
