@@ -16,19 +16,21 @@ function App() {
 
   const dispatch = useDispatch();
  useEffect(() => {
+
     axios
       .get(`https://api.jsonbin.io/v3/b/640e569ac0e7653a0586ccae`)
       .then((response) => {
-       console.log(response.data.record[0]);
-     response.data.record.map(post=> dispatch(setResipes(post)))
+     
+         dispatch(setResipes(response.data.record))
+        
       })
       .catch((error) => {
         console.log(error);
       });
+
   }, []);
   
 
-console.log(recipes);
 
   return (
     <div>

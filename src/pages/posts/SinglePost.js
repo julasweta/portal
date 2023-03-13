@@ -1,21 +1,28 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { setActiveCategories } from "../../redux/slices/categoriesSlice";
+import { setActivePost } from "../../redux/slices/postsSlice";
 
 function SinglePost() {
   const dispatch = useDispatch();
-  const { activeCategories } = useSelector((state) => state.categories);
-  const { posts } = useSelector((state) => state.posts);
-  const [post, setPost] = useState([]);
+  const { activeSubCategories, activeName, activePost } = useSelector(
+    (state) => state.categories
+  );
+  const { recipes } = useSelector((state) => state.posts);
 
   useEffect(() => {
-    setPost(posts.filter((post) => posts.link === activeCategories));
-  }, []);
+    const post = recipes
+      .filter((post) => post.category === activeSubCategories)
+      .filter((item) => item.id === activeName);
+    dispatch(setActivePost(post));
+  }, [activeName, recipes, activeSubCategories]);
+
+  console.log(activePost);
+  console.log(activeName);
 
   return (
     <div>
-      <h4>Single</h4>
+      <h4>{activePost && activePost.name}</h4>
     </div>
   );
 }

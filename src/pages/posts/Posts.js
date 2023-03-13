@@ -18,13 +18,13 @@ function Posts({ cat }) {
     dispatch(setActiveName(name));
   };
 
-console.log(recipes);
+console.log(recipes.filter(item=> item.category === cat));
 
 
   return (
     <div>
       <ul className="list-posts">
-        {recipes !== undefined && recipes.map((post, index) => (
+        {recipes !== undefined && recipes.filter(item => item.category === cat).map((post, index) => (
           <li key={index} className="card-post">
             <h4>{post.name}</h4>
             <div>
