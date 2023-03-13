@@ -1,18 +1,20 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector,useDispatch } from "react-redux";
+import {setActiveCategories} from "../../redux/slices/categoriesSlice";
 import { Link, Route, Routes } from "react-router-dom";
 import Categories from "../posts/Categories";
-import SinglePost from "../posts/SinglePost";
 
 function Home() {
+  const dispatch = useDispatch();
   const { email } = useSelector((state) => state.user);
-  const { categories } = useSelector((state) => state.categories);
-  const [activeLink, setActive] = useState("");
+  const { categories, activeCategories } = useSelector((state) => state.categories);
+ 
 
   const onActive = (category) => {
-    setActive(category);
+    
+    dispatch(setActiveCategories(category));
   };
-
+ console.log(activeCategories);
   return (
     <div className="container">
       <div>
@@ -28,7 +30,7 @@ function Home() {
                       onActive(category.link);
                     }}
                     to={`/${category.link}/`}
-                    className={category.link === activeLink ? "active" : ""}
+                    className={category.link === activeCategories ? "active" : ""}
                   >
                     {category.name}
                   </Link>
@@ -40,8 +42,8 @@ function Home() {
               {categories.map((category) => (
                 <Route
                   key={category.id}
-                  path={`/:${category.link}/*`}
-                  element={<Categories cat={activeLink} />}
+                  path={`/:${activeCategories}/*`}
+                  element={<Categories cat={activeCategories} />}
                 />
               ))}
             </Routes>

@@ -137,20 +137,24 @@ const initialState = {
     },
   ],
  
- 
+  activeCategories:'',
+  activeSubCategories:''
 };
 
 export const categoriesSlice = createSlice({
   name: "categories",
   initialState,
   reducers: {
-    setFirstName: (state, action) => {
-    state.firstName = action.payload
+    setActiveCategories: (state, action) => {
+    state.activeCategories = action.payload
     },
+    setActiveSubCategories: (state, action) => {
+      state.activeSubCategories = action.payload
+      },
  
   },
 });
 
-export const {  } = categoriesSlice.actions;
+export const {  setActiveCategories, setActiveSubCategories} = categoriesSlice.actions;
 
 export default categoriesSlice.reducer;

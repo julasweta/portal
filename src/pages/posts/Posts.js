@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Button from "../../components/Button";
-import { Link, useParams } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 
 function Posts({cat}) {
   const [posts, setPosts] = useState([]);
- 
+
+
 
   //отримуємо рецепти
   useEffect(() => {

@@ -1,19 +1,22 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import {  useSelector, useDispatch } from "react-redux";
+import {  setActiveSubCategories} from "../../redux/slices/categoriesSlice";
 import { Link, Route, Routes, useParams } from "react-router-dom";
 import Posts from "./Posts";
 import SinglePost from "./SinglePost";
 
 function Categories({ cat }) {
   const usePar = useParams();
- 
+  const dispatch = useDispatch();
 
-console.log(usePar);
-  const { categories } = useSelector((state) => state.categories);
+  const { categories, activeCategories, activeSubCategories } = useSelector((state) => state.categories);
   const subCategories = categories.filter((item) => item.link === cat );
 
+const onActiveSubCategories = (category)=> {
+ dispatch(setActiveSubCategories(category))
+}
 
-
+console.log(`/${activeCategories}/${activeSubCategories}/*`);
   return (
     <div>
     
@@ -21,14 +24,14 @@ console.log(usePar);
         {subCategories &&
           subCategories[0].subCategories.map((category) => (
             <li key={category.id} >
-              <Link to={`${category.link}`} className={category.link === usePar['*']? 'active' : ''}>{category.name}</Link>
+              <Link onClick={()=>onActiveSubCategories(category.link)} to={`${category.link}`} className={category.link === usePar['*']? 'active' : ''}>{category.name}</Link>
             </li>
           ))}
       </ul>
 
 
       <Routes>
-      <Route path={`${cat}/${usePar['*']}`} element={<SinglePost></SinglePost>}/>
+      <Route path={`:${activeCategories}/:${activeSubCategories}/:id`} element={<SinglePost></SinglePost>}/>
         {subCategories &&
           subCategories[0].subCategories.map((category) => (
             <Route
