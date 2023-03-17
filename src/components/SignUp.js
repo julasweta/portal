@@ -14,6 +14,7 @@ function SignUp() {
 
   const { register, handleSubmit, setValue, watch } = useForm();
 
+  //відправка даних, форма авторизації
   const onSubmit = (data) => {
     const auth = getAuth();
     signInWithEmailAndPassword(auth, data.email, data.password)
@@ -37,6 +38,8 @@ function SignUp() {
     setValue("email", watch("email") || "");
     setValue("password", watch("password") || "");
   }, [setValue, watch]);
+
+ 
 
   return (
     <div>

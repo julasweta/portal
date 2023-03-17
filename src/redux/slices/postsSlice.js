@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   recipes: [],
- activePost: []
+  activePost: [],
 };
 
 export const postsSlice = createSlice({
@@ -10,12 +10,11 @@ export const postsSlice = createSlice({
   initialState,
   reducers: {
     setResipes: (state, action) => {
-    state.recipes =  action.payload
+      state.recipes = action.payload;
     },
     setActivePost: (state, action) => {
-      state.activePost =  action.payload
-      },
- 
+      state.activePost = action.payload;
+    },
   },
 });
 

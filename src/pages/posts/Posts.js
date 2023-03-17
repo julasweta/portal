@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Button from "../../components/Button";
-import { Link, useLocation, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setActiveName } from "../../redux/slices/categoriesSlice";
 import {setResipes}  from "../../redux/slices/postsSlice";
@@ -18,7 +18,7 @@ function Posts({ cat }) {
     dispatch(setActiveName(name));
   };
 
-console.log(recipes.filter(item=> item.category === cat));
+
 
 
   return (

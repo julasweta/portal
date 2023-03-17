@@ -22,6 +22,8 @@
 .list-posts{
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
+  
   .card-post{
     width: 450px;
     border: 2px solid gray;

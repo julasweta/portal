@@ -51,7 +51,7 @@ function Form() {
         <Button type="submit" name="Send" />
       </form>
 
-<div className="error">{error.substring(5)}</div>
+<div className="error">{error && error.substring(5)}</div>
 
     </div>
   );

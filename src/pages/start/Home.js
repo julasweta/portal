@@ -14,11 +14,11 @@ function Home() {
     
     dispatch(setActiveCategories(category));
   };
- console.log(activeCategories);
+
   return (
     <div className="container">
       <div>
-        {email != null ? (
+        {email === null ? (
           <div className="wrapper-sign">Авторизуйтесь</div>
         ) : (
           <div className="wrapper-content">
