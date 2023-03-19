@@ -6,9 +6,9 @@ import Categories from "../posts/Categories";
 
 function Home() {
   const dispatch = useDispatch();
-  const { email } = useSelector((state) => state.user);
+ // const { email } = useSelector((state) => state.user);
   const { categories, activeCategories, activeSubCategories } = useSelector((state) => state.categories);
- 
+  const emailLocal = JSON.parse(localStorage.getItem("emailLocal") );
 
   const onActive = (category) => {
     
@@ -18,7 +18,7 @@ function Home() {
   return (
     <div className="container">
       <div>
-        {email === null ? (
+        {emailLocal === null ? (
           <div className="wrapper-sign">Авторизуйтесь</div>
         ) : (
           <div className="wrapper-content">
@@ -43,7 +43,7 @@ function Home() {
                 <Route
                   key={category.id}
                   path={`/:${activeCategories}/*`}
-                  element={<Categories cat={category.link} />}
+                  element={<Categories/>}
                 />
               ))}
             </Routes>

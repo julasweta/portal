@@ -6,21 +6,22 @@ import Posts from "./Posts";
 import SinglePost from "./SinglePost";
 
 
-function Categories({ cat }) {
-  const usePar = useParams();
+function Categories() {
+ //const usePar = useParams();
   const dispatch = useDispatch();
 
 
 
   const { categories, activeCategories, activeSubCategories, activeName } =
     useSelector((state) => state.categories);
-  const subCategories = categories.filter((item) => item.link === cat);
+  const subCategories = categories.filter((item) => item.link === activeCategories);
 
   const onActiveSubCategories = (category) => {
     dispatch(setActiveSubCategories(category));
   };
 
- 
+
+
   return (
     <div>
       <ul className="sub">
@@ -28,9 +29,9 @@ function Categories({ cat }) {
           subCategories[0].subCategories.map((category) => (
             <li key={category.id}>
               <Link
-                onClick={() => onActiveSubCategories(category.link)}
+                onClick={()=> onActiveSubCategories(category.link)}
                 to={`${category.link}`}
-                className={category.link === usePar["*"] ? "active" : ""}
+                className={category.link === activeSubCategories ? "active" : ""}
               >
                 {category.name}
               </Link>
@@ -40,15 +41,15 @@ function Categories({ cat }) {
 
       <Routes>
         <Route
-          path={`/:${activeSubCategories}/*`}
+        exact path={`/:${activeSubCategories}/*`}
           element={<SinglePost></SinglePost>}
         />
         {subCategories &&
           subCategories[0].subCategories.map((category) => (
             <Route
               key={category.id}
-              path={`/:${activeCategories}/`}
-              element={<Posts cat={usePar["*"]} />}
+              exact path={`/:${activeCategories}/`}
+              element={<Posts cat={activeSubCategories} />}
             />
           ))}
       </Routes>

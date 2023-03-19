@@ -9,10 +9,12 @@ import Client from "./pages/start/Client";
 import { useEffect } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import {setResipes}  from "./redux/slices/postsSlice";
+import {setResipes, setUsefuls}  from "./redux/slices/postsSlice";
 
 function App() {
   const { recipes } = useSelector((state) => state.posts);
+  const { activeCategories} =
+  useSelector((state) => state.categories);
 
   const dispatch = useDispatch();
  useEffect(() => {
@@ -22,6 +24,21 @@ function App() {
       .then((response) => {
      
          dispatch(setResipes(response.data.record))
+        
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
+  }, []);
+
+  useEffect(() => {
+
+    axios
+      .get(`https://api.jsonbin.io/v3/b/6415ca97ace6f33a22f10fa0`)
+      .then((response) => {
+     
+         dispatch(setUsefuls(response.data.record))
         
       })
       .catch((error) => {

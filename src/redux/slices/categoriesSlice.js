@@ -60,7 +60,7 @@ const initialState = {
       subCategories:  [
         {
           id: 1,
-          name: "Таблиця",
+          name: "Таблиці",
           img: "https://cdn.stocksnap.io/img-thumbs/960w/sandwich-food_XJGS3LXDXA.jpg",
           description: "Каталог, збірник рецептів",
           link: "tabl1",
@@ -137,8 +137,8 @@ const initialState = {
     },
   ],
  
-  activeCategories:'',
-  activeSubCategories:'',
+  activeCategories:'recipes',
+  activeSubCategories:'salads',
   activeName:'',
 };
 

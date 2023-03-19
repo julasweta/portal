@@ -3,11 +3,15 @@ import { useSelector } from "react-redux";
 
 function useAuth() {
   const { email, password, id } = useSelector((state) => state.user);
+  const emailLocal = JSON.parse(localStorage.getItem("emailLocal") );
+  const idLocal = JSON.parse(localStorage.getItem("idLocal") );
+  const accesLocal = JSON.parse(localStorage.getItem("accesLocal") );
+
   return {
-    isAuth: !!email,
-    email,
-    password,
-    id,
+    isAuth: !!emailLocal,
+    emailLocal,
+    accesLocal,
+    idLocal,
   };
 }
 

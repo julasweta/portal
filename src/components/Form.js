@@ -12,7 +12,7 @@ function Form() {
 
   const [error, setError] = useState(null);
 
-  const { email } = useSelector((state) => state.user);
+ // const { email } = useSelector((state) => state.user);
 
   const { register, handleSubmit, setValue, watch } = useForm();
 

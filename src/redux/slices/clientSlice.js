@@ -13,10 +13,11 @@ export const clientSlice = createSlice({
     state.firstName = action.payload
     },
     setLike: (state, action) => {
-      state.like.includes(action.payload)?
-      state.like = [state.like] : 
+     if (state.like.includes(action.payload) )
+     { state.like = [...state.like]}
+     else{
       state.like = [...state.like, action.payload]
-      
+     }
       },
  
   },

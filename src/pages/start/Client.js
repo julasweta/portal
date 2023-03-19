@@ -18,24 +18,16 @@ function Client() {
   const auth = getAuth();
   const dispatch = useDispatch();
 
-
-  const userId = auth.currentUser ? auth.currentUser.uid : null;
-  //записуємо
-  localStorage.setItem("userIdLocal", JSON.stringify(userId));
-
   // отримуємо
-  const userIdLocal = JSON.parse(
-    localStorage.getItem("userIdLocal")
-  );
+  const userIdLocal = JSON.parse(localStorage.getItem("idLocal"));
+  const emailLocal = JSON.parse(localStorage.getItem("emailLocal"));
 
-
-    //перевіряємо чи залогінився користувач
-    useEffect(() => {
-      if (!userIdLocal) {
-        navigate("/login");
-      }
-    }, [userIdLocal]);
-
+  //перевіряємо чи залогінився користувач
+  useEffect(() => {
+    if (!userIdLocal) {
+      navigate("/login");
+    }
+  }, [userIdLocal]);
 
   //FORM
   const { register, handleSubmit, setValue, watch } = useForm();
@@ -46,7 +38,7 @@ function Client() {
   }, [setValue, watch]);
 
   const onSubmit = (data) => {
-    writeUserData(userIdLocal, data.firstName, data.email);
+    writeUserData(userIdLocal, data.firstName, emailLocal);
     setSend(!send);
   };
 
@@ -71,11 +63,13 @@ function Client() {
       firstName: name,
       email: email,
     });
+    localStorage.setItem(
+      "firstNameLocal",
+      JSON.stringify(name || "Введіть Імя")
+    );
   }
 
-    
 
-  
 
   return (
     <div className="container column">

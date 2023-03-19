@@ -15,10 +15,9 @@ export const userSlice = createSlice({
       state.token = action.payload.token;
       state.id = action.payload.id;
     },
-    removeUser:(state, action) => { 
-         state.email = null;
-        state.token = null;
-        state.id = null;
+    removeUser:(state) => { 
+   
+      
       },
   },
 });

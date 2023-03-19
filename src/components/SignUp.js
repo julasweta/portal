@@ -14,11 +14,18 @@ function SignUp() {
 
   const { register, handleSubmit, setValue, watch } = useForm();
 
+
+
   //відправка даних, форма авторизації
   const onSubmit = (data) => {
+   
+   
     const auth = getAuth();
     signInWithEmailAndPassword(auth, data.email, data.password)
       .then((user) => {
+        localStorage.setItem("emailLocal", JSON.stringify(user.user.email));
+        localStorage.setItem("idLocal", JSON.stringify(user.user.uid));
+        localStorage.setItem("accesLocal", JSON.stringify(user.user.accessToken));
         dispatch(
           setUser({
             email: user.user.email,
@@ -31,6 +38,7 @@ function SignUp() {
       .catch((error) => {
         setError(error.code);
       });
+  
   };
 
   // після монтування компоненту встановлюємо значення поля форми, які передаються в data onSubmit
@@ -39,7 +47,10 @@ function SignUp() {
     setValue("password", watch("password") || "");
   }, [setValue, watch]);
 
- 
+
+  const userIdLocal = JSON.parse(localStorage.getItem("userIdLocal") );
+
+
 
   return (
     <div>

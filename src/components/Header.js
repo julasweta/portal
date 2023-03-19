@@ -1,17 +1,28 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { removeUser } from "../redux/slices/userSlice";
 
 function Header() {
   const dispatch = useDispatch();
-  const { email, id, token } = useSelector((state) => state.user);
   const { firstName } = useSelector((state) => state.client);
+  const navigate = useNavigate();
+
+  const emailLocal = JSON.parse(localStorage.getItem("emailLocal") );
+   const firstNameLocal = JSON.parse(
+    localStorage.getItem("firstNameLocal")
+  );
+
+  const removeUser = () => {
+    localStorage.setItem("emailLocal", JSON.stringify(null));
+    localStorage.setItem("idLocal", JSON.stringify(null));
+    localStorage.setItem("accesLocal", JSON.stringify(null));
+    navigate("/login");
+  }
 
   return (
     <div className="header">
       
-      {email === null ? (
+      {emailLocal === null ? (
         <div className="wrapper-sign">
           <Link to="*"><h1>Смачно.tyt</h1></Link>
           <Link to="/login" className="btn btn-login">
@@ -24,12 +35,12 @@ function Header() {
       ) : (
         <div className="wrapper-sign">
           <Link to="/">Home</Link>
-          <Link to="/client" className="link-profile">{firstName}</Link>
+          <Link to="/client" className="link-profile">{firstNameLocal}</Link>
           <div>
-            <div> {email} </div>
+            <div> {emailLocal} </div>
             <button
               className="btn btn-out"
-              onClick={() => dispatch(removeUser())}
+              onClick={() => removeUser()}
             >
               {" "}
               login out{" "}
