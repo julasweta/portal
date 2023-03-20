@@ -35,7 +35,7 @@ function Header() {
       ) : (
         <div className="wrapper-sign">
           <Link to="/">Home</Link>
-          <Link to="/client" className="link-profile">{firstNameLocal}</Link>
+          <Link to="/client" className="link-profile">Ваш профіль {firstNameLocal}</Link>
           <div>
             <div> {emailLocal} </div>
             <button

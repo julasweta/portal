@@ -57,7 +57,7 @@ function Client() {
     );
   }, [send]);
 
-  //записуємо дані для запису в загальну базу даних користувача
+  //записуємо дані для запису в загальну базу даних користувача і в LocalStorage
   function writeUserData(userId, name, email) {
     set(ref(db, "users/" + userId), {
       firstName: name,

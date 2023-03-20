@@ -22,7 +22,7 @@ function Home() {
           <div className="wrapper-sign">Авторизуйтесь</div>
         ) : (
           <div className="wrapper-content">
-            <ul>
+            <ul className="category-list">
               {categories.map((category) => (
                 <li key={category.id}>
                   <Link
@@ -32,7 +32,10 @@ function Home() {
                     to={`${category.link}`}
                     className={category.link === activeCategories ? "active" : ""}
                   >
-                    {category.name}
+                    <div className="category-box">
+                      <h4>{category.name}</h4>
+                      <div className="category-img"><img src={category.img} alt={category.name} /></div>
+                    </div>
                   </Link>
                 </li>
               ))}

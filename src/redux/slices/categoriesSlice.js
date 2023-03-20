@@ -68,7 +68,7 @@ const initialState = {
         },
         {
           id: 2,
-          name: "Таблиця2",
+          name: "Поради",
           img: "https://images.pexels.com/photos/13915954/pexels-photo-13915954.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
           description: "Корсині поради, довідники",
           link: "tabl2",

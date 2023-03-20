@@ -7,19 +7,32 @@ function SinglePost() {
   const db = getDatabase();
   const auth = getAuth();
 
-  const { activeSubCategories, activeName, activeCategories } = useSelector(
+  const { activeSubCategories, activeCategories } = useSelector(
     (state) => state.categories
   );
   const { recipes, usefuls } = useSelector((state) => state.posts);
 
-  const activeArr = ()=> {
-    return activeCategories === 'recipes'? recipes : usefuls
-   }
+
+
+
+const activeId = JSON.parse(
+  localStorage.getItem("activeId")
+);
+const activeCategory= JSON.parse(
+  localStorage.getItem("activeCategory")
+);
+const activeSubCategory = JSON.parse(
+  localStorage.getItem("activeSubCategory")
+);
+
+const activeArr = ()=> {
+  return activeCategory === 'recipes'? recipes : usefuls
+ } 
 
   const post = 
-    activeArr().filter((post) => post.category === activeSubCategories)
-    .filter((item) => item.id === activeName)
- 
+    activeArr().filter((post) => post.category === activeSubCategory)
+    .filter((item) => item.id === activeId)
+
 
   //const userId = auth.currentUser.uid;
   // отримуємо
@@ -33,7 +46,7 @@ function SinglePost() {
     get(userRef).then((snapshot) => {
       const userData = snapshot.val();
      // console.log(userData.like);
-      if (userData === (undefined || null)) {
+      if (userData.like === undefined || null) {
         console.log("ne zapusyjy");
         set(userRef, {
           like: [id],
@@ -47,14 +60,14 @@ function SinglePost() {
 
         console.log("currentLikes:", currentLikes);
         if (!hasId) {
-          console.log("id не знайдено, додано like");
+          alert("Додано в улюблені");
           // update the like array with the new id
           set(userRef, {
             ...userData,
             like: [...currentLikes, id],
           });
         } else {
-          console.log("вже є в лайках");
+          alert(`вже є в списку "Улюблені"`);
         }
       }
     });
@@ -64,8 +77,9 @@ function SinglePost() {
     <div>
       <h4>{post[0].name}</h4>
       <img src={post[0].img} alt={post[0].name} width="500" />
+      <div>{post[0].description}</div>
 
-      {activeCategories === "useful" && (
+      {activeCategory === "useful" && (
         <table>
           <thead>
             <tr>
@@ -96,7 +110,7 @@ function SinglePost() {
         onClick={() => writeUserData(userIdLocal, (post[0].id + post[0].category+''))}
         className="custom-btn btn"
       >
-        Like
+       Add Like
       </button>
     </div>
   );

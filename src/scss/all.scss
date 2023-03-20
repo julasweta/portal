@@ -1,25 +1,52 @@
-@import "components/_form" ;
-@import "components/_button" ;
-@import "components/_header" ;
-@import "components/_client" ;
-@import "components/_card" ;
+@import "components/_form";
+@import "components/_button";
+@import "components/_header";
+@import "components/_client";
+@import "components/_card";
 
-.container{
-    display: flex;
-    padding: 0 20px 0 20px;
-    flex-direction: column;
+.container {
+  display: flex;
+  padding: 0 20px 0 20px;
+  flex-direction: column;
 }
-.column{
-    flex-direction: column;
+.column {
+  flex-direction: column;
 }
-.list{
-    display: flex;
-    flex-wrap: wrap;
+.list {
+  display: flex;
+  flex-wrap: wrap;
 }
-a{
-    text-decoration: none;
+a {
+  text-decoration: none;
 }
 
-.active{
-    color: red;
+.active {
+  color: red;
+}
+li {
+  list-style: none;
+}
+
+.category-list {
+  display: flex;
+  justify-content: space-between;
+  li {
+    width: 20%;
+    height: 10rem;
+    .category-box {
+        h4{
+            text-align: center;
+        }
+      border: 2px solid gray;
+      .category-img {
+        img {
+          display: flex;
+          object-fit: cover;
+          width: 100%;
+          height: 100px;
+          text-align: center;
+        }
+      }
+    }
+  }
 }
