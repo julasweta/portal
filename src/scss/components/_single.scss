@@ -1,0 +1,90 @@
+.single-box {
+  h1 {
+    text-align: center;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+      rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+      rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+
+  }
+  .single-description {
+    display: flex;
+    justify-content: space-around;
+
+    .single-img {
+      width: 35%;
+      img {
+        width: 100%;
+        object-fit: cover;
+        
+      box-shadow: rgba(0, 0, 0, 0.25) 0px 74px 75px,
+      rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+      rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+
+      }
+     
+    }
+    .single-img:hover{
+      width: 40%;
+      transition: all 5s ease;
+    }
+    
+    .single-info {
+      width: 40%;
+      text-indent: 5%;
+      background-color: white;
+      padding: 30px;
+      box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+      rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+      rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+
+
+      .single-ingridients {
+        position: relative;
+        cursor: pointer;
+        transition: all 5s ease;
+
+        span {
+          cursor: pointer;
+          color: rgb(69, 69, 196);
+        }
+        span:hover {
+          color: rgb(35, 145, 145);
+        }
+
+        .show {
+          padding: 0;
+          position: absolute;
+          z-index: 2;
+          opacity: 1;
+          transform: translate(-200px, -150px);
+          background-color: aqua;
+          transition: all 5s ease;
+          animation: anim 1s;
+          width: 170px;
+          text-align: center;
+          .single-calories p:nth-child(1) {
+            color: red;
+          }
+        }
+        @keyframes anim {
+          from {
+            transform: translate(-100px, 0px);
+          }
+        }
+      }
+    }
+  }
+.single-recipe{
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+      rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+      rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+border-radius: 3%;
+padding: 30px;
+}
+
+  ol li {
+    list-style: auto;
+  }
+}

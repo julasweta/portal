@@ -3,11 +3,14 @@
 @import "components/_header";
 @import "components/_client";
 @import "components/_card";
+@import "components/_single";
 
 .container {
   display: flex;
   padding: 0 20px 0 20px;
   flex-direction: column;
+  background-image: url('https://as1.ftcdn.net/v2/jpg/05/73/95/84/1000_F_573958455_6AJv2M83TAzdWP1mrQWQuOzxgBGzyhV1.webp');
+z-index: 0;
 }
 .column {
   flex-direction: column;
@@ -30,6 +33,9 @@ li {
 .category-list {
   display: flex;
   justify-content: space-between;
+  
+  background-color: white;
+  z-index: 1;
   li {
     width: 20%;
     height: 10rem;

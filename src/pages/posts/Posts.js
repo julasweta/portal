@@ -7,6 +7,7 @@ function Posts({ cat }) {
   const { recipes, usefuls } = useSelector((state) => state.posts);
   const { activeCategories } = useSelector((state) => state.categories);
   
+  
 
   const onActiveName = (id, category, subCategory) => {
     localStorage.setItem(
@@ -52,10 +53,11 @@ function Posts({ cat }) {
                   <h4>{post.name}</h4>
                 </div>
                 <div className="card-body">
-                  <p>{post.description}</p>
                   <div className="card-post_img">
                     <img src={post.img} alt={post.name}></img>
                   </div>
+                  
+                  <p>{post.description.slice(0, 120)}...</p>
                   <div>
                     
                     <Link

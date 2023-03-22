@@ -109,26 +109,34 @@ const initialState = {
       subCategories:  [
         {
           id: 1,
-          name: "Сезон1",
+          name: "Літо",
           img: "https://cdn.stocksnap.io/img-thumbs/960w/sandwich-food_XJGS3LXDXA.jpg",
           description: "Каталог, збірник рецептів",
-          link: "saeason2",
+          link: "sumer",
           posts:""
         },
         {
           id: 2,
-          name: "Сезон2",
+          name: "Осінь",
           img: "https://images.pexels.com/photos/13915954/pexels-photo-13915954.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
           description: "Корсині поради, довідники",
-          link: "saeson3",
+          link: "autumn",
           posts:""
         },
         {
           id: 3,
-          name: "Сезон3",
+          name: "Весна",
           img: "https://images.pexels.com/photos/2059151/pexels-photo-2059151.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-          description: "/meat",
-          link: "saeson4t",
+          description: "spring",
+          link: "spring",
+          posts:""
+        },
+        {
+          id: 4,
+          name: "Зима",
+          img: "https://images.pexels.com/photos/2059151/pexels-photo-2059151.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+          description: "winter",
+          link: "winter",
           posts:""
         },
        

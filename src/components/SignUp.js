@@ -18,8 +18,6 @@ function SignUp() {
 
   //відправка даних, форма авторизації
   const onSubmit = (data) => {
-   
-   
     const auth = getAuth();
     signInWithEmailAndPassword(auth, data.email, data.password)
       .then((user) => {
@@ -36,12 +34,13 @@ function SignUp() {
         navigate("/client");
       })
       .catch((error) => {
-        setError(error.code);
+       // setError(error.code);
       });
   
   };
 
-  // після монтування компоненту встановлюємо значення поля форми, які передаються в data onSubmit
+  /* після монтування компоненту встановлюємо значення поля форми, 
+  які передаються в data onSubmit */
   useEffect(() => {
     setValue("email", watch("email") || "");
     setValue("password", watch("password") || "");
