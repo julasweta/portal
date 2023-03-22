@@ -1,0 +1,103 @@
+@media (max-width: 995px) {
+  // ваші стилі для мобільних пристроїв
+  .category-list {
+    li {
+      width: 25%;
+    }
+  }
+
+  .list-posts .card-post {
+    width: 40%;
+    img {
+      height: 15vi;
+    }
+  }
+}
+
+@media (max-width: 751px) {
+  // ваші стилі для мобільних пристроїв
+  .category-img {
+    display: none;
+  }
+  .category-list {
+    padding: 0;
+    height: 20px;
+    li {
+      width: 25%;
+      .category-box {
+        border: none;
+        h4 {
+          word-break: break-all;
+          margin: 0;
+          width: max-content;
+        }
+      }
+    }
+  }
+
+  .sub {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 0;
+    height: max-content;
+    li {
+      word-break: break-all;
+    }
+  }
+
+  .list-posts .card-post {
+    width: 45%;
+    height: 410px;
+    .card-body {
+      img {
+        height: 15vi;
+      }
+      .custom-btn {
+        width: fit-content;
+        font-size: 0.7rem;
+        padding: 0;
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .category-list {
+    li {
+      width: 35%;
+    }
+  }
+  .list-posts .card-post {
+    width: 45%;
+    height: 220px;
+    .card-name {
+      h4 {
+        font-size: 0.8rem;
+        height: 38px;
+      }
+    }
+    .card-body {
+      p {
+        display: none;
+      }
+      img {
+        height: 19vi;
+      }
+      .custom-btn {
+        width: fit-content;
+        font-size: 0.7rem;
+        padding: 0;
+      }
+    }
+  }
+}
+
+@media (max-width: 400px){
+    .list-posts .card-post{
+        width: 90%;
+        .card-body img{
+            height: 27vi;
+        }
+    }
+}
