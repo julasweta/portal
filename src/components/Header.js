@@ -45,7 +45,7 @@ function Header() {
       ) : (
         <div className="wrapper-sign">
           <Link to="/">
-            <h1>CooksHub</h1>
+            <h1>Смачно.tyt</h1>
           </Link>
 
           {!isMobile ? (
