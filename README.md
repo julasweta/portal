@@ -1,5 +1,5 @@
-# PROJECT PAGE
+# [Смачно.tyt](https://julasweta.github.io/portal/)
 
-This project   [Смачно.tyt]  was bootstrapped with Create React App(https://julasweta.github.io/portal/).
+This project    was bootstrapped with Create React App.
 
 
