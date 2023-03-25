@@ -87,7 +87,7 @@ function ClientLike() {
     });
   }, [db, navigate, userIdLocal, deleted]);
 
-  console.log(currentLike);
+ 
 
   // записуємо пости
   useEffect(() => {

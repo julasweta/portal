@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getDatabase, ref, set, onValue } from "firebase/database";
+import { getDatabase, ref, set, onValue, get } from "firebase/database";
 import { useDispatch, useSelector } from "react-redux";
 import { getAuth } from "firebase/auth";
 import { useForm } from "react-hook-form";
@@ -50,18 +50,35 @@ function Client() {
         dispatch(
           setFirstName((snapshot.val() && snapshot.val().firstName) || null)
         );
-      },
-      {
-        onlyOnce: true,
       }
     );
-  }, [send]);
+  }, [send, userIdLocal, db, dispatch]);
 
   //записуємо дані для запису в загальну базу даних користувача і в LocalStorage
   function writeUserData(userId, name, email) {
-    set(ref(db, "users/" + userId), {
-      firstName: name,
-      email: email,
+    const userRef = ref(db, "users/" + userId);
+
+    // Отримати поточну версію масиву з бази даних
+    get(userRef).then((snapshot) => {
+      const userData = snapshot.val();
+      if (
+        userData === null 
+      ) {
+        
+        set(userRef, {
+          firstName: name,
+        });
+      } else {
+        // Перевірити, чи вже є елемент з id в масиві
+       
+       
+          set(userRef, {
+            ...userData,
+            firstName: name,
+          });
+        
+    
+        }
     });
     localStorage.setItem(
       "firstNameLocal",

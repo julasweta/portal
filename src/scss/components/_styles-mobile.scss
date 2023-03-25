@@ -64,6 +64,8 @@
 
 @media (max-width: 600px) {
   .category-list {
+    flex-direction: column;
+    height: 80px;
     li {
       width: 35%;
     }
