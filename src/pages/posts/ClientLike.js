@@ -77,10 +77,10 @@ function ClientLike() {
 
     // витягуємо лайки з бази данних
     onValue(ref(db, "/users/" + userIdLocal), (snapshot) => {
-      if (snapshot.val().like === null)
-        setCurrentLike(snapshot.val().like.filter(Boolean));
+     console.log( snapshot.val());
+      if (snapshot.val().like === undefined)
+        setCurrentLike([]);
       else {
-        console.log("ja tyt");
         const key = Object.values(snapshot.val().like);
         setCurrentLike(key);
       }

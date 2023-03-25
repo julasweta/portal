@@ -47,8 +47,9 @@ function Client() {
     onValue(
       ref(db, "/users/" + userIdLocal),
       (snapshot) => {
+
         dispatch(
-          setFirstName((snapshot.val() && snapshot.val().firstName) || null)
+          setFirstName((snapshot.val().firstName && snapshot.val().firstName) || null)
         );
       }
     );
@@ -61,6 +62,7 @@ function Client() {
     // Отримати поточну версію масиву з бази даних
     get(userRef).then((snapshot) => {
       const userData = snapshot.val();
+      console.log(userData);
       if (
         userData === null 
       ) {
