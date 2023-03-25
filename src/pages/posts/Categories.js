@@ -30,7 +30,8 @@ function Categories() {
             <li key={category.id}>
               <Link
                 onClick={()=> onActiveSubCategories(category.link)}
-                to={process.env.PUBLIC_URL +`/${activeCategories}/${category.link}`}
+                to={`${category.link}`}
+
                 className={category.link === activeSubCategories ? "active" : ""}
               >
                 {category.name}
@@ -41,7 +42,7 @@ function Categories() {
 
       <Routes>
         <Route
-        exact path={process.env.PUBLIC_URL +`:/${activeCategories}//:${activeSubCategories}/*`}
+        exact path={`/:${activeSubCategories}/*`}
           element={<SinglePost></SinglePost>}
         />
         {subCategories &&

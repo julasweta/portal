@@ -15,7 +15,7 @@ function Home() {
     dispatch(setActiveCategories(category));
   };
 
-  console.log(process.env.PUBLIC_URL +`/${activeCategories}/`);
+ 
   return (
     <div className="container">
       <div>
@@ -30,7 +30,7 @@ function Home() {
                     onClick={() => {
                       onActive(category.link);
                     }}
-                    to={`${category.link}`}
+                    to={`/${category.link}`}
                     className={category.link === activeCategories ? "active" : ""}
                   >
                     <div className="category-box">

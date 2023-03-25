@@ -32,7 +32,7 @@ function Header() {
     <div className="header">
       {emailLocal === null ? (
         <div className="wrapper-sign">
-          <Link to= "/">
+          <Link to= "/*">
             <h1>Смачно.tyt</h1>
           </Link>
           <Link to="/login" className="btn btn-login">
@@ -44,7 +44,7 @@ function Header() {
         </div>
       ) : (
         <div className="wrapper-sign">
-          <Link to="/">
+          <Link to="/*">
             <h1>Смачно.tyt</h1>
           </Link>
 
