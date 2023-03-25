@@ -68,7 +68,7 @@ function SignUp() {
 
         <Button type={"submit"} name={"Send"}></Button>
       </form>
-      <Link to="/reset">Відновити пароль</Link>
+      <Link to={process.env.PUBLIC_URL +'/reset'}>Відновити пароль</Link>
       <div className="error">{error && error.substring(5)}</div>
     </div>
   );
