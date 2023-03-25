@@ -51,14 +51,14 @@ function App() {
 
   return (
     <div>
-      <BrowserRouter>
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Header></Header>
       <Routes>
-        <Route exact path="*" element={<Home/>}/>
-        <Route  path={process.env.PUBLIC_URL + '/login'} element={<Login/>}/>
-        <Route  path={process.env.PUBLIC_URL +'/register'} element={<Register/>}/>
-        <Route  path={process.env.PUBLIC_URL +'/reset'} element={<Reset/>}/>
-        <Route  path={process.env.PUBLIC_URL + '/client'} element={<Client/>}/>
+        <Route exact path="/" element={<Home/>}/>
+        <Route  path="/login" element={<Login/>}/>
+        <Route  path="/register" element={<Register/>}/>
+        <Route  path="/reset" element={<Reset/>}/>
+        <Route  path="/client" element={<Client/>}/>
         </Routes>
       </BrowserRouter>
     </div>

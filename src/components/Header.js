@@ -32,26 +32,26 @@ function Header() {
     <div className="header">
       {emailLocal === null ? (
         <div className="wrapper-sign">
-          <Link to="*">
+          <Link to= "/">
             <h1>Смачно.tyt</h1>
           </Link>
-          <Link to={process.env.PUBLIC_URL + '/login'} className="btn btn-login">
+          <Link to="/login" className="btn btn-login">
             login
           </Link>
-          <Link to={process.env.PUBLIC_URL +'/register'} className="btn btn-register">
+          <Link to="/register" className="btn btn-register">
             register
           </Link>
         </div>
       ) : (
         <div className="wrapper-sign">
-          <Link to="*">
+          <Link to="/">
             <h1>Смачно.tyt</h1>
           </Link>
 
           {!isMobile ? (
             <div className="sign-box">
               {" "}
-              <Link to={process.env.PUBLIC_URL + '/client'} className="link-profile">
+              <Link to="/client"className="link-profile">
                 Ваш профіль {firstNameLocal}
               </Link>
               <div>

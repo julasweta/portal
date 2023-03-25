@@ -15,6 +15,7 @@ function Home() {
     dispatch(setActiveCategories(category));
   };
 
+  console.log(process.env.PUBLIC_URL +`/${activeCategories}/`);
   return (
     <div className="container">
       <div>
