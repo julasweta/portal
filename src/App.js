@@ -1,5 +1,5 @@
 import "./scss/all.scss";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import Login from "./pages/start/Login";
 import Register from "./pages/start/Register";
 import Home from "./pages/start/Home";
@@ -51,7 +51,7 @@ function App() {
 
   return (
     <div>
-      <BrowserRouter basename={process.env.PUBLIC_URL}>
+      <HashRouter >
       <Header></Header>
       <Routes>
         <Route exact path="/*" element={<Home/>}/>
@@ -60,7 +60,7 @@ function App() {
         <Route  path="/reset" element={<Reset/>}/>
         <Route  path="/client" element={<Client/>}/>
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </div>
   );
 }

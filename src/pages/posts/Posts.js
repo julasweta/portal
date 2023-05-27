@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "../../components/Button";
 import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 function Posts({ cat }) {
   const { recipes, usefuls } = useSelector((state) => state.posts);

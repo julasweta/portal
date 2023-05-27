@@ -31,7 +31,7 @@ function SignUp() {
             token: user.user.accessToken,
           })
         );
-        navigate("/client");
+        navigate("/*");
       })
       .catch((error) => {
        // setError(error.code);

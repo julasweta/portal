@@ -18,6 +18,7 @@ function Home() {
  
   return (
     <div className="container">
+      privet
       <div>
         {emailLocal === null ? (
           <div className="wrapper-sign">Авторизуйтесь</div>

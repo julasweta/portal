@@ -29,11 +29,8 @@ function SinglePost() {
 
   //отримуємо калорії для кожного інгрідієнта
   const caloriesForProduct = (product) => {
-    console.log(product);
     //const name = product.split(" - ")[0];console.log(name);
-    console.log(table);
     const res = table.filter((item) => item["Назва"].toLowerCase() === product.toLowerCase());
-    console.log(res);
     return res;
   };
 
@@ -41,7 +38,9 @@ function SinglePost() {
   const params = useParams();
   const category = Object.keys(params)[1];
   const subcategory = Object.keys(params)[2];
-  const recipeId = params.hasOwnProperty("0") ? params["0"] : undefined;
+  const recipeId = params.hasOwnProperty("*") ? params["*"] : undefined;
+
+console.log(recipeId);
 
   // який активний масив даних
   const activeArr = () => {
